@@ -19,5 +19,6 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/page/', views.PageListView.as_view())
+    path('api/page/', views.PageListView.as_view()),
+    path('api/page/<int:pk>/', views.PageDetailView.as_view())
 ]
