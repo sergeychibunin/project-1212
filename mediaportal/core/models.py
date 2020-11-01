@@ -33,12 +33,13 @@ title
 class ContentVideo(models.Model):
     title = models.CharField(max_length=100)
     video_url = models.URLField()
-    subtitles_url = models.URLField()
+    subtitles_url = models.URLField(null=True, blank=True)
     counter = models.PositiveIntegerField()
 
 
 class ContentAudio(models.Model):
     title = models.CharField(max_length=100)
+    audio_url = models.URLField()
     rate = models.IntegerField()
     counter = models.PositiveIntegerField()
 
@@ -51,6 +52,6 @@ class ContentText(models.Model):
 
 class Page(models.Model):
     title = models.CharField(max_length=100)
-    videos = models.ManyToManyField(ContentVideo)
-    audios = models.ManyToManyField(ContentAudio)
-    texts = models.ManyToManyField(ContentText)
+    videos = models.ManyToManyField(ContentVideo, blank=True)
+    audios = models.ManyToManyField(ContentAudio, blank=True)
+    texts = models.ManyToManyField(ContentText, blank=True)
