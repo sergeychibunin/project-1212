@@ -3,9 +3,11 @@ from core.models import Page, ContentAudio, ContentText, ContentVideo
 
 
 class PageSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.HyperlinkedIdentityField(view_name='page-detail', read_only=True)
+
     class Meta:
         model = Page
-        fields = ['id']
+        fields = ['id', 'url']
 
 
 class ContentTextDetailSerializer(serializers.ModelSerializer):
