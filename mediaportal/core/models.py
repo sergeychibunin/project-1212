@@ -44,6 +44,9 @@ class ContentVideo(models.Model, ContentMixin):
     subtitles_url = models.URLField(null=True, blank=True)
     counter = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.title
+
 
 class ContentAudio(models.Model, ContentMixin):
     title = models.CharField(max_length=100)
@@ -51,11 +54,17 @@ class ContentAudio(models.Model, ContentMixin):
     rate = models.IntegerField()
     counter = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.title
+
 
 class ContentText(models.Model, ContentMixin):
     title = models.CharField(max_length=100)
     body = models.TextField()
     counter = models.PositiveIntegerField()
+
+    def __str__(self):
+        return self.title
 
 
 class Page(models.Model):
@@ -63,3 +72,6 @@ class Page(models.Model):
     videos = models.ManyToManyField(ContentVideo, blank=True)
     audios = models.ManyToManyField(ContentAudio, blank=True)
     texts = models.ManyToManyField(ContentText, blank=True)
+
+    def __str__(self):
+        return self.title

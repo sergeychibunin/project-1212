@@ -7,7 +7,7 @@ from core.tasks import increase_counter as celery_increase_counter
 
 
 class PageListView(generics.ListAPIView):
-    queryset = Page.objects.all()
+    queryset = Page.objects.all().order_by('id')
     serializer_class = PageSerializer
 
 
