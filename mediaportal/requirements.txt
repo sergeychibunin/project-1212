@@ -1,0 +1,4 @@
+psycopg2
+djangorestframework
+django-sortedm2m
+celery
