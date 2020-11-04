@@ -4,7 +4,6 @@ from core.models import Page, ContentAudio, ContentText, ContentVideo
 
 class PageAdmin(admin.ModelAdmin):
     search_fields = ['title']
-    autocomplete_fields = ['videos', 'texts', 'audios']
 
 
 class ContentAudioAdmin(admin.ModelAdmin):

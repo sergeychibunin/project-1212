@@ -1,4 +1,5 @@
 from django.db import models
+from sortedm2m.fields import SortedManyToManyField
 
 """
 There is a primitive scheme.
@@ -69,9 +70,9 @@ class ContentText(models.Model, ContentMixin):
 
 class Page(models.Model):
     title = models.CharField(max_length=100)
-    videos = models.ManyToManyField(ContentVideo, blank=True)
-    audios = models.ManyToManyField(ContentAudio, blank=True)
-    texts = models.ManyToManyField(ContentText, blank=True)
+    videos = SortedManyToManyField(ContentVideo, blank=True)
+    audios = SortedManyToManyField(ContentAudio, blank=True)
+    texts = SortedManyToManyField(ContentText, blank=True)
 
     def __str__(self):
         return self.title
