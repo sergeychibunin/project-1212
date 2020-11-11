@@ -29,5 +29,5 @@ class PageListTestCase(APITestCase):
         response = self.client.get(reverse('page-detail', args=[p1.id]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         r = response.json()
-        self.assertEqual(r == {'id': 1, 'title': 'p1', 'texts': [{'title': 't2', 'body': 'b2'}, {'title': 't1', 'body': 'b1'}], 'audios': [], 'videos': []}, True)
+        self.assertEqual(r == {'id': p1.id, 'title': 'p1', 'texts': [{'title': 't2', 'body': 'b2'}, {'title': 't1', 'body': 'b1'}], 'audios': [], 'videos': []}, True)
         self.assertEqual(cel_task.called, True)
